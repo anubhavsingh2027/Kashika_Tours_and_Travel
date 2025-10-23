@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Tour Package - Admin Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="min-h-screen bg-gray-50">
+    <nav id="navbar" class="sticky top-0 z-40"></nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-12">
+      <div class="text-center mb-10 animate-fade-in" data-reveal>
+        <h1
+          class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-rose-500 mb-2"
+        >
+          Create New Tour Package
+        </h1>
+        <p class="text-slate-600">Add a new travel package to your offerings</p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300" data-reveal>
+        <div class="p-8 relative">
+          <div class="relative z-10">
+          <form id="packageSetForm" class="space-y-6">
+            <div class="space-y-2">
+              <label
+                for="packageName"
+                class="block text-sm font-medium text-slate-700"
+                >Package Name</label
+              >
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+                >
+                  <i class="fas fa-map-marked-alt text-slate-400"></i>
+                </div>
+                <input
+                  type="text"
+                  name="packageName"
+                  id="packageName"
+                  placeholder="e.g., Spiritual Varanasi Tour"
+                  required
+                  class="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 hover:border-indigo-400 outline-none transition-all bg-white shadow-sm"
+                />
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label
+                for="place"
+                class="block text-sm font-medium text-slate-700"
+                >Route / Destinations</label
+              >
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+                >
+                  <i class="fas fa-route text-slate-400"></i>
+                </div>
+                <input
+                  type="text"
+                  name="place"
+                  id="place"
+                  placeholder="e.g., Assi Ghat - Dasaswamedh Ghat - Manikarnika Ghat"
+                  required
+                  class="w-full pl-11 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600 focus:border-transparent outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label
+                for="price"
+                class="block text-sm font-medium text-slate-700"
+                >Package Duration in Days</label
+              >
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+                >
+                  <i class="fas fa-indian-rupee-sign text-slate-400"></i>
+                </div>
+                <input
+                  type="number"
+                  name="packageDuration"
+                  id="packageDuration"
+                  placeholder="Enter package Duration in days"
+                  required
+                  min="0"
+                  class="w-full pl-11 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600 focus:border-transparent outline-none transition-all"
+                />
+              </div>
+            </div>
+            <!-- Price Input -->
+            <div class="space-y-2">
+              <label
+                for="price"
+                class="block text-sm font-medium text-slate-700"
+                >Package Price</label
+              >
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+                >
+                  <i class="fas fa-indian-rupee-sign text-slate-400"></i>
+                </div>
+                <input
+                  type="number"
+                  name="price"
+                  id="price"
+                  placeholder="Enter package price"
+                  required
+                  min="0"
+                  class="w-full pl-11 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600 focus:border-transparent outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <!-- Image URL Input -->
+            <div class="space-y-2">
+              <label for="url" class="block text-sm font-medium text-slate-700"
+                >Package Image URL</label
+              >
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+                >
+                  <i class="fas fa-image text-slate-400"></i>
+                </div>
+                <input
+                  type="text"
+                  name="url"
+                  id="url"
+                  placeholder="Enter package image URL"
+                  required
+                  class="w-full pl-11 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600 focus:border-transparent outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <!-- Description Textarea -->
+            <div class="space-y-2">
+              <label
+                for="description"
+                class="block text-sm font-medium text-slate-700"
+                >Package Description</label
+              >
+              <div class="relative">
+                <div class="absolute top-3 left-4 pointer-events-none">
+                  <i class="fas fa-align-left text-slate-400"></i>
+                </div>
+                <textarea
+                  name="description"
+                  id="description"
+                  placeholder="Enter detailed package description, including itinerary highlights, duration, and what's included"
+                  required
+                  rows="4"
+                  class="w-full pl-11 pr-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600 focus:border-transparent outline-none transition-all resize-none"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <button
+                type="submit"
+                id="submitBtn"
+                class="w-full py-3 px-6 bg-gradient-to-r from-indigo-600 to-rose-500 text-white rounded-xl font-medium hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
+              >
+                <span class="flex items-center justify-center gap-2">
+                  <i class="fas fa-plus-circle"></i>
+                  <span>Create Package</span>
+                </span>
+                <div
+                  class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+                ></div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div
+        id="PackageMessage"
+        class="fixed bottom-6 right-6 z-50 transition-all duration-300 transform translate-y-0 opacity-0"
+        style="pointer-events: none;"
+      ></div>
+    </main>
+
+    <style>
+      .animate-slide-up {
+        animation: slideUp 0.3s ease-out forwards;
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      #PackageMessage.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+    </style>
+
+      <script type="module">
+  import { getUserSession } from "./assets/js/services.js";
+
+  async function checkAccess() {
+    try {
+      const data = await getUserSession();
+      if (!data?.user || data.user.userType !== "host") {
+        window.location.href = "/unauthorsisedAccess";
+      }
+    } catch (error) {
+      window.location.href = "/unauthorsisedAccess"; // fallback redirect
+    }
+  }
+  document.addEventListener("DOMContentLoaded", checkAccess);
+</script>
+    <script type="module" src="./assets/js/DynamicNav.js"></script>
+    <script type="module" src="./assets/js/tailwind-init.js"></script>
+    <script type="module">
+      import { createPackage } from "./assets/js/services.js";
+
+      const packageForm = document.getElementById("packageSetForm");
+      const message = document.getElementById("PackageMessage");
+      const submitBtn = document.getElementById("submitBtn");
+
+      const urlInput = document.getElementById("url");
+      urlInput.addEventListener("input", debounce(previewImage, 500));
+
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      function previewImage() {
+        const url = urlInput.value.trim();
+        if (url) {
+          // Remove old preview if exists
+          const oldPreview = document.getElementById("imagePreview");
+          if (oldPreview) oldPreview.remove();
+
+          // Create new preview
+          const preview = document.createElement("div");
+          preview.id = "imagePreview";
+          preview.className =
+            "mt-2 rounded-xl overflow-hidden bg-slate-50 relative group hover:shadow-lg transition-shadow";
+          preview.innerHTML = `
+            <img src="${url}" alt="Package Preview" class="w-full h-48 object-cover" onerror="this.parentElement.remove()"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+              Package preview image
+            </div>
+          `;
+          urlInput.parentElement.parentElement.appendChild(preview);
+        }
+      }
+
+      function showMessage(text, type = "success") {
+        message.innerHTML = `
+          <div class="px-6 py-4 rounded-xl shadow-xl ${
+            type === "success"
+              ? "bg-emerald-600 text-white"
+              : "bg-rose-600 text-white"
+          } flex items-center gap-3 animate-slide-up border border-white/20">
+            <i class="fas ${
+              type === "success" ? "fa-check-circle" : "fa-exclamation-circle"
+            }"></i>
+            <p>${text}</p>
+          </div>
+        `;
+
+        // Add show class to make the message visible
+        message.classList.add('show');
+
+        // Remove show class after delay
+        setTimeout(() => {
+          message.classList.remove('show');
+        }, 3000);
+      }
+
+      function setLoading(isLoading) {
+        const btnContent = submitBtn.querySelector("span");
+        if (isLoading) {
+          submitBtn.disabled = true;
+          submitBtn.classList.add("opacity-80");
+          btnContent.innerHTML = `
+            <div class="flex items-center gap-3">
+              <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Creating Package...
+            </div>
+          `;
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("opacity-80");
+          btnContent.innerHTML = `
+            <i class="fas fa-plus-circle"></i>
+            <span>Create Package</span>
+          `;
+        }
+      }
+
+      if (packageForm) {
+        packageForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          setLoading(true);
+
+          try {
+            const packageData = {
+              packageName: document.getElementById("packageName").value.trim(),
+              place: document.getElementById("place").value.trim(),
+              url: document.getElementById("url").value.trim(),
+              price: document.getElementById("price").value.trim(),
+              packageDuration: document.getElementById("packageDuration").value.trim(),
+              description: document.getElementById("description").value.trim(),
+            };
+
+            const data = await createPackage(packageData);
+
+            if (data.error) {
+              showMessage(`Failed to create package: ${data.message}`, "error");
+            } else {
+              showMessage("Package created successfully! 🎉");
+
+              packageForm.reset();
+              const preview = document.getElementById("imagePreview");
+              if (preview) preview.remove();
+
+              // Scroll smoothly to top after success
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          } catch (err) {
+            showMessage(
+              "An unexpected error occurred. Please try again.",
+              "error"
+            );
+          } finally {
+            setLoading(false);
+          }
+        });
+      }
+    </script>
+
+  </body>
+</html>
