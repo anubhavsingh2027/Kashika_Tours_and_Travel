@@ -230,6 +230,32 @@
         opacity: 1;
         transform: translateY(0);
       }
+
+      /* Skeleton Loading Animation */
+      @keyframes shimmer {
+        0% {
+          background-position: -200% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+
+      .skeleton {
+        background: linear-gradient(
+          90deg,
+          #f0f0f0 25%,
+          #e0e0e0 50%,
+          #f0f0f0 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+      }
+
+      .skeleton-card {
+        opacity: 0.7;
+        pointer-events: none;
+      }
     </style>
   </head>
 
@@ -847,25 +873,74 @@
     `;
       }
 
+      // Skeleton templates
+      function packageSkeletonCard() {
+        return `
+          <article class="bg-white rounded-2xl shadow-lg overflow-hidden skeleton-card">
+            <div class="relative aspect-[4/3] skeleton"></div>
+            <div class="p-6 space-y-4">
+              <div class="flex gap-4">
+                <div class="h-8 w-24 rounded-full skeleton"></div>
+                <div class="h-8 w-24 rounded-full skeleton"></div>
+              </div>
+              <div class="space-y-2">
+                <div class="h-4 w-3/4 rounded skeleton"></div>
+                <div class="h-4 w-1/2 rounded skeleton"></div>
+              </div>
+              <div class="flex items-center justify-between pt-4 border-t">
+                <div class="h-10 w-24 rounded skeleton"></div>
+                <div class="h-10 w-32 rounded-full skeleton"></div>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      function carSkeletonCard() {
+        return `
+          <article class="bg-white rounded-2xl shadow-lg overflow-hidden skeleton-card">
+            <div class="relative aspect-[5/3] skeleton"></div>
+            <div class="p-6 space-y-4">
+              <div class="h-6 w-3/4 rounded skeleton"></div>
+              <div class="grid grid-cols-2 gap-3">
+                ${Array(4).fill('<div class="h-10 rounded-lg skeleton"></div>').join('')}
+              </div>
+              <div class="space-y-2">
+                <div class="h-4 w-full rounded skeleton"></div>
+                <div class="h-4 w-2/3 rounded skeleton"></div>
+              </div>
+              <div class="flex items-center justify-between pt-4 border-t">
+                <div class="h-10 w-24 rounded skeleton"></div>
+                <div class="h-10 w-32 rounded-full skeleton"></div>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
       // Keep ALL your original functions exactly the same
       async function loadPackages() {
+        const packageContainer = document.getElementById("packageContainer");
+        if (!packageContainer) return;
+
+        // Show skeleton loading
+        packageContainer.innerHTML = Array(6).fill(packageSkeletonCard()).join('');
+
         const userSession = await getUserSession();
         const userType = userSession?.user?.userType || "guest";
 
         const data = await getAllPackages();
-        const container = document.getElementById("packageContainer");
 
-        if (!container) return;
         if (data.error) {
-          container.textContent = "Failed to load packages.";
+          packageContainer.textContent = "Failed to load packages.";
           return;
         }
         if (data.length === 0) {
-          container.textContent = "No packages available.";
+          packageContainer.textContent = "No packages available.";
           return;
         }
 
-        container.innerHTML = data.map((pkg) => packageCard(pkg)).join("");
+        packageContainer.innerHTML = data.map((pkg) => packageCard(pkg)).join("");
 
         // attach preview listeners
         document.querySelectorAll(".previewBtn").forEach((btn) => {
@@ -881,6 +956,12 @@
       }
 
       async function loadCars() {
+        const carContainer = document.getElementById("carContainer");
+        if (!carContainer) return;
+
+        // Show skeleton loading
+        carContainer.innerHTML = Array(6).fill(carSkeletonCard()).join('');
+
         const userSession = await getUserSession();
         const userType = userSession?.user?.userType || "guest";
 
