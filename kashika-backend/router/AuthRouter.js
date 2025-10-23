@@ -3,9 +3,7 @@ const AuthRouter = express.Router();
 const AuthController = require("../controllers/Auth-Controller.js");
 
 // Public routes
-AuthRouter.get('/',(req,res,next)=>{
-  res.send('server is running');
-})
+
 AuthRouter.post("/signup", AuthController.postSignUp);
 AuthRouter.post("/login", AuthController.postLogin);
 AuthRouter.post("/logout", AuthController.postLogout);

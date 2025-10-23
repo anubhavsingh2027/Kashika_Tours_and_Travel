@@ -33,6 +33,12 @@ app.use(cors({
 }));
 
 
+//test server
+
+app.get('/',(req,res,next)=>{
+  res.send('server is running');
+});
+
 
 // ===== ROUTES =====
 app.use("/kashikaTravel", fetchRouter);
