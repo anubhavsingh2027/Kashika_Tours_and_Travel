@@ -1,7 +1,7 @@
 export async function createPackage(packageData) {
   try {
     const response = await fetch(
-      "https://kt-backend.anubhavsingh.website/admin/createPackage",
+      "https://kt-backend.anubhavsingh.website/kashikaTravel/admin/createPackage",
       {
         method: "POST",
         headers: {
@@ -23,7 +23,7 @@ export async function createPackage(packageData) {
 export async function addCar(carData) {
   try {
     const response = await fetch(
-      "https://kt-backend.anubhavsingh.website/admin/addCar",
+      "https://kt-backend.anubhavsingh.website/kashikaTravel/admin/addCar",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -42,7 +42,7 @@ export async function addCar(carData) {
 export async function registerUser(userData) {
   try {
     const response = await fetch(
-      "https://kt-backend.anubhavsingh.website/signup",
+      "https://kt-backend.anubhavsingh.website/kashikaTravel/signup",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -61,7 +61,7 @@ export async function registerUser(userData) {
 export async function loginUser(loginData) {
   try {
     const response = await fetch(
-      "https://kt-backend.anubhavsingh.website/login",
+      "https://kt-backend.anubhavsingh.website/kashikaTravel/login",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -82,7 +82,7 @@ export async function loginUser(loginData) {
 export async function forgetPass(forgetData) {
   try {
     const response = await fetch(
-      "https://kt-backend.anubhavsingh.website/forgetPassword",
+      "https://kt-backend.anubhavsingh.website/kashikaTravel/forgetPassword",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -103,7 +103,7 @@ export async function forgetPass(forgetData) {
 export async function getUserSession() {
   try {
     const response = await fetch(
-      "https://kt-backend.anubhavsingh.website/session-user",
+      "https://kt-backend.anubhavsingh.website/kashikaTravel/session-user",
       {
         credentials: "include",
       }
@@ -121,7 +121,7 @@ export async function bookPackage(bookingData) {
   const userId = bookingData.userId;
   try {
     const response = await fetch(
-      `https://kt-backend.anubhavsingh.website/bookPackage/${userId}`,
+      `https://kt-backend.anubhavsingh.website/kashikaTravel/bookPackage/${userId}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -143,7 +143,7 @@ export async function bookingCar(bookingData) {
   const userId = bookingData.userId;
   try {
     const response = await fetch(
-      `https://kt-backend.anubhavsingh.website/carbooking/${userId}`,
+      `https://kt-backend.anubhavsingh.website/kashikaTravel/carbooking/${userId}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -164,7 +164,7 @@ export async function bookingCar(bookingData) {
 export async function getAllCars() {
   try {
     const response = await fetch(
-      "https://kt-backend.anubhavsingh.website/getCar",
+      "https://kt-backend.anubhavsingh.website/kashikaTravel/getCar",
       {
         credentials: "include",
       }
@@ -180,7 +180,7 @@ export async function getAllCars() {
 export async function getAllPackages() {
   try {
     const response = await fetch(
-      "https://kt-backend.anubhavsingh.website/getPackage",
+      "https://kt-backend.anubhavsingh.website/kashikaTravel/getPackage",
       {
         credentials: "include",
       }
@@ -196,7 +196,7 @@ export async function getAllPackages() {
 export async function deleteCar(id) {
   try {
     const response = await fetch(
-      `https://kt-backend.anubhavsingh.website/admin/carDelete/${id}`,
+      `https://kt-backend.anubhavsingh.website/kashikaTravel/admin/carDelete/${id}`,
       {
         method: "DELETE",
         credentials: "include",
@@ -213,7 +213,7 @@ export async function deleteCar(id) {
 export async function deletePackage(id) {
   try {
     const response = await fetch(
-      `https://kt-backend.anubhavsingh.website/admin/packageDelete/${id}`,
+      `https://kt-backend.anubhavsingh.website/kashikaTravel/admin/packageDelete/${id}`,
       {
         method: "DELETE",
         credentials: "include",
@@ -230,7 +230,7 @@ export async function deletePackage(id) {
 export async function getUsers() {
   try {
     const response = await fetch(
-      "https://kt-backend.anubhavsingh.website/getUser",
+      "https://kt-backend.anubhavsingh.website/kashikaTravel/getUser",
       {
         credentials: "include",
       }
@@ -246,7 +246,7 @@ export async function getUsers() {
 export async function userTypeChanged(typeData) {
   try {
     const response = await fetch(
-      `https://kt-backend.anubhavsingh.website/changeUserType`,
+      `https://kt-backend.anubhavsingh.website/kashikaTravel/changeUserType`,
       {
         method: "PUT",
         credentials: "include",
@@ -270,7 +270,7 @@ export async function userTypeChanged(typeData) {
 export async function logoutRequested() {
   try {
     const response = await fetch(
-      "https://kt-backend.anubhavsingh.website/logout",
+      "https://kt-backend.anubhavsingh.website/kashikaTravel/logout",
       {
         method: "POST",
         credentials: "include",
@@ -289,7 +289,7 @@ export async function logoutRequested() {
 export async function userHistory(id) {
   try {
     const response = await fetch(
-      `https://kt-backend.anubhavsingh.website/userHistory/${id}`,
+      `https://kt-backend.anubhavsingh.website/kashikaTravel/userHistory/${id}`,
       {
         credentials: "include",
       }
